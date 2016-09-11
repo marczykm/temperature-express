@@ -8,9 +8,9 @@
   <body ng-controller="TemperatureCtrl as tempCtrl" ng-cloak>
     <h1><%= title %></h1>
     <div>
-      <div class="date">{{ temperature.datetime | date : 'd.MM.yyyy' }}</div>
-      <div class="time">{{ temperature.datetime | date : 'HH:mm:ss' }}</div>
-      <div class="celsius">{{ temperature.celsius }}</div>
+      <h2 class="date">{{ temperature.datetime | date : 'd.MM.yyyy' }}</div>
+      <h2 class="time">{{ temperature.datetime | date : 'HH:mm:ss' }}</div>
+      <h3 class="celsius">{{ temperature.celsius }}°C</div>
     </div>
 
     <pre>

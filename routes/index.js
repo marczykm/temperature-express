@@ -5,8 +5,8 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index',
     {
-      title: 'Express',
-      env: req.app.get('env') 
+      title: 'Temperatura',
+      env: req.app.get('env')
     }
   );
 });
