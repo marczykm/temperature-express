@@ -12,6 +12,7 @@ router.get('/temperature', function(req, res){
   var temperature = new Temperature();
   if (req.app.get('env') === 'development'){
     temperature.celsius = 99;
+    res.json(temperature);
   }
 
   if(req.app.get('env') !== 'development'){
@@ -20,10 +21,9 @@ router.get('/temperature', function(req, res){
       id = ids[0];
       temperature.celsius = ds18b20.temperatureSync(id);
       console.log(temperature);
+      res.json(temperature);
     });
-  }
-
-  res.json(temperature);
+  }  
 });
 
 module.exports = router;
