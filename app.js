@@ -56,5 +56,8 @@ app.use(function(err, req, res, next) {
   });
 });
 
+var port = process.env.PORT;
+var env = app.get('env');
+console.log('app running on port ' + port + ' in ' + env + ' mode');
 
 module.exports = app;

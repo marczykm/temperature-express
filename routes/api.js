@@ -2,20 +2,24 @@ var express = require('express');
 var ds18b20 = require('ds18b20');
 var router = express.Router();
 
-function Temperature() {
-  this.datetime = '';
-  this.celsius = '';
+function Temperature(temperature) {
+  this.datetime = new Date();
+  this.celsius = temperature;
 }
 
 router.get('/test', function(req, res){
   var id = '';
-  ds18b20.sensors(function(err, ids){
-    id = ids[0];
-  });
-
   var temperature = new Temperature();
-  temperature.datetime = new Date();
-  temperature.celsius = ds18b20.temperatureSync(id);
+  if (req.app.get('env') === 'development'){
+    temperature.celsius = 99;
+  }
+
+  if(req.app.get('env') !== 'development'){
+    ds18b20.sensors(function(err, ids){
+      id = ids[0];
+    });
+    temperature.celsius = ds18b20.temperatureSync(id);
+  }
 
   res.json(temperature);
 });
