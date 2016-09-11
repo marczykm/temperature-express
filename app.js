@@ -64,9 +64,7 @@ if (port === undefined) {
   port = 3000;
 }
 var env = app.get('env');
-app.listen(port, function(){
-  console.log('app running on port ' + port + ' in ' + env + ' mode');
-});
+console.log('app running on port ' + port + ' in ' + env + ' mode');
 
 
 module.exports = app;
