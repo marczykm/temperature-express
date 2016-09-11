@@ -3,11 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <style link="/angular/angular-csp.css"></style>
   </head>
-  <body ng-controller="TemperatureCtrl as tempCtrl">
+  <body ng-controller="TemperatureCtrl as tempCtrl" ng-cloak>
     <h1><%= title %></h1>
-    <div ng-cloak>
-      <div class="timestamp">{{ temperature.datetime }}</div>
+    <div>
+      <div class="date">{{ temperature.datetime | date : 'd.MM.yyyy' }}</div>
+      <div class="time">{{ temperature.datetime | date : 'HH:mm:ss' }}</div>
       <div class="celsius">{{ temperature.celsius }}</div>
     </div>
 
