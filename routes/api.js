@@ -7,7 +7,7 @@ function Temperature(temperature) {
   this.celsius = temperature;
 }
 
-router.get('/test', function(req, res){
+router.get('/temperature', function(req, res){
   var id = '';
   var temperature = new Temperature();
   if (req.app.get('env') === 'development'){
@@ -16,6 +16,7 @@ router.get('/test', function(req, res){
 
   if(req.app.get('env') !== 'development'){
     ds18b20.sensors(function(err, ids){
+      console.log(ids);
       id = ids[0];
     });
     temperature.celsius = ds18b20.temperatureSync(id);
