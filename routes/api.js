@@ -17,13 +17,10 @@ router.get('/temperature', function(req, res){
 
   if(req.app.get('env') !== 'development'){
     ds18b20.sensors(function(err, ids){
-      console.log(ids[0]);
-      id = ids[0];
-      temperature.celsius = ds18b20.temperatureSync(id);
-      console.log(temperature);
+      temperature.celsius = ds18b20.temperatureSync(ids[0]);
       res.json(temperature);
     });
-  }  
+  }
 });
 
 module.exports = router;
