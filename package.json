@@ -1,0 +1,19 @@
+{
+  "name": "temperature-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marczykm/temperature-express.git"
+  },
+  "author": "m.l.marczyk@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marczykm/temperature-express/issues"
+  },
+  "homepage": "https://github.com/marczykm/temperature-express#readme"
+}
