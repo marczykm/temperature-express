@@ -12,7 +12,7 @@ router.get('/temperature', function(req, res){
   var id = '';
   var temperature = new Temperature();
   if (req.app.get('env') === 'development'){
-    temperature.celsius = 99;
+    temperature.celsius = (Math.random()*100).toFixed(2);
     res.json(temperature);
   }
 

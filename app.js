@@ -57,7 +57,13 @@ app.use(function(err, req, res, next) {
 });
 
 var port = process.env.PORT;
+if (port === undefined) {
+  port = 3000;
+}
 var env = app.get('env');
-console.log('app running on port ' + port + ' in ' + env + ' mode');
+app.listen(port, function(){
+  console.log('app running on port ' + port + ' in ' + env + ' mode');
+});
+
 
 module.exports = app;
